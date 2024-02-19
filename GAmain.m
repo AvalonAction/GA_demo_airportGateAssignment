@@ -1,19 +1,19 @@
 close all;
 clear all;
 clc;
-%BasePath  =  I:\ÑĞ¾¿Éú\ÑĞ¾¿\ËûÈË³É¹û\sjy\ÂÛÎÄ\codes
-%%Êı¾İµ¼Èë
+%BasePath  =  I:\ç ”ç©¶ç”Ÿ\ç ”ç©¶\è®ºæ–‡\codes
+%%æ•°æ®å¯¼å…¥
 %{
 hangbanData
-ÁĞ
-1£º  º½°àºÅ
-2£º  º½°àºÅĞòÁĞºÅ£¨ÒÔ°´µ½´ïÊ±¼äÅÅĞò!!!£©
-3£º  º½°à»úĞÍ£¨¾ßÌåĞÍºÅ£©
-4£º  Æ¥Åä»úÎ»ÀàĞÍ£¨¾ßÌåĞÍºÅ¹éÀà³É»úÎ»ÀàĞÍ£©
-5£º  µ½´ïÊ±¼ä    Îªµ±ÈÕ0µãºó·ÖÖÓÊı
-6£º  ³ö·¢Ê±¼ä
-7£º  ½µÂäÅÜµÀ
-8:   Æğ·ÉÅÜµÀ
+åˆ—
+1ï¼š  èˆªç­å·
+2ï¼š  èˆªç­å·åºåˆ—å·ï¼ˆä»¥æŒ‰åˆ°è¾¾æ—¶é—´æ’åº!!!ï¼‰
+3ï¼š  èˆªç­æœºå‹ï¼ˆå…·ä½“å‹å·ï¼‰
+4ï¼š  åŒ¹é…æœºä½ç±»å‹ï¼ˆå…·ä½“å‹å·å½’ç±»æˆæœºä½ç±»å‹ï¼‰
+5ï¼š  åˆ°è¾¾æ—¶é—´    ä¸ºå½“æ—¥0ç‚¹ååˆ†é’Ÿæ•°
+6ï¼š  å‡ºå‘æ—¶é—´
+7ï¼š  é™è½è·‘é“
+8:   èµ·é£è·‘é“
 %}
 hangbanData = load('DATA_hangbanData.txt');
 hangbanData = sortrows(hangbanData,5);
@@ -22,64 +22,64 @@ for i=1:m
     hangbanData(i,2) = i;
 end
 %{
-»úÎ»ĞÅÏ¢
+æœºä½ä¿¡æ¯
 positionData
-ÁĞ
-1£º»úÎ»ºÅ
-2£º»úÎ»ÀàĞÍ(1<2<3...    1ĞÍ·É»ú¿ÉÍ£>=1ĞÍµÄ»úÎ»,´ó·É»ú²»¿ÉÍ£Ğ¡»úÎ»)
-3£ºÔ¶½üflag£¨1¿¿ÇÅ 2·Ç¿¿ÇÅ £©
-4: ¿ÕÏĞ¿ªÊ¼Ê±¼ä
+åˆ—
+1ï¼šæœºä½å·
+2ï¼šæœºä½ç±»å‹(1<2<3...    1å‹é£æœºå¯åœ>=1å‹çš„æœºä½,å¤§é£æœºä¸å¯åœå°æœºä½)
+3ï¼šè¿œè¿‘flagï¼ˆ1é æ¡¥ 2éé æ¡¥ ï¼‰
+4: ç©ºé—²å¼€å§‹æ—¶é—´
 %}
 positionData = load('DATA_positionData.txt');
 [p,q] = size(positionData);
 %{
 oilCostData
-ÁĞ
-1£ººÄÓÍ¼ÆËã²Î¿¼»úĞÍ
-2£ºÆ½¾ùÃ¿·ÖÖÓºÄÓÍ
+åˆ—
+1ï¼šè€—æ²¹è®¡ç®—å‚è€ƒæœºå‹
+2ï¼šå¹³å‡æ¯åˆ†é’Ÿè€—æ²¹
 %}
 oilCost = load('DATA_oilCost.txt');
-%»¬ĞĞËÙ¶È(km/h)
+%æ»‘è¡Œé€Ÿåº¦(km/h)
 speed = 15;
 %{
-¾àÀë¾ØÕó
+è·ç¦»çŸ©é˜µ
 distanse
-   A: aÅÜµÀÓë¸÷»úÎ»¾àÀë B: bÅÜµÀÓë¸÷»úÎ»¾àÀë(Ò»°ã»ú³¡×î¶à1-3ÌõÅÜµÀ)
-ÁĞ
-1£º»úÎ»ºÅ
-2-~£ºÅÜµÀºÅ
+   A: aè·‘é“ä¸å„æœºä½è·ç¦» B: bè·‘é“ä¸å„æœºä½è·ç¦»(ä¸€èˆ¬æœºåœºæœ€å¤š1-3æ¡è·‘é“)
+åˆ—
+1ï¼šæœºä½å·
+2-~ï¼šè·‘é“å·
 %}
 distanse = load('DATA_distanse.txt');
 [~,ww]=size(distanse);
 time = distanse(:,2:ww)/speed*60;
 
-%ÏàÁÚÁ½º½°àÖ®¼äµÄ×îĞ¡°²È«Ê±¼ä¼ä¸ô(min)
+%ç›¸é‚»ä¸¤èˆªç­ä¹‹é—´çš„æœ€å°å®‰å…¨æ—¶é—´é—´éš”(min)
 timeInter = 20;
 
-%%½â½á¹¹£¬²ÎÊıÉè¶¨ =======================================
+%%è§£ç»“æ„ï¼Œå‚æ•°è®¾å®š =======================================
 
-%ÖÖÈº£¬È¾É«Ìå×é³É
+%ç§ç¾¤ï¼ŒæŸ“è‰²ä½“ç»„æˆ
 
 config = load('config.txt');
-%×î´óµü´ú´ÎÊı
+%æœ€å¤§è¿­ä»£æ¬¡æ•°
 Maxgen = config(1,1);
-%ÖÖÈº´óĞ¡
+%ç§ç¾¤å¤§å°
 Y = config(1,2);
-%½»²æËã×Ó
+%äº¤å‰ç®—å­
 croPos = config(1,3);
-%±äÒìËã×Ó
+%å˜å¼‚ç®—å­
 mutPos = config(1,4);
-%È¨ÖØ
+%æƒé‡
 w1 = config(1,5);
 w2 = config(1,6);
-%µ¥Ä¿±êor¶àÄ¿±ê
+%å•ç›®æ ‡orå¤šç›®æ ‡
 goal = config(1,7);
 chroms = cell(1,Y);
 %============================================
-%¼ÆÊ±¿ªÊ¼
+%è®¡æ—¶å¼€å§‹
 
 tic;
-%³õÊ¼»¯£¬¹¹½¨³õÊ¼·½°¸/ÖÖÈº
+%åˆå§‹åŒ–ï¼Œæ„å»ºåˆå§‹æ–¹æ¡ˆ/ç§ç¾¤
 for i=1:Y
     structchroms.HangbanSeNum = hangbanData(1:m, 2)';
     structchroms.Position = zeros(1,m);
@@ -89,141 +89,141 @@ for i=1:Y
     structchroms.fitness = 0;
     chroms{1,i} = structchroms;
     %{
-      chroms{1,i}= struct('HangbanSeNum',hangbanData(1:m, 2)',...% º½°àĞòÁĞºÅ£¬²»±äÖ»×÷²Î¿¼£¬Èç¹ûĞÔÄÜ²»×ã£¬¿ÉÖ±½ÓÈ¥µô
-                   'Position',zeros(1,m),... % Í£»úÎ»ºÅ
+      chroms{1,i}= struct('HangbanSeNum',hangbanData(1:m, 2)',...% èˆªç­åºåˆ—å·ï¼Œä¸å˜åªä½œå‚è€ƒï¼Œå¦‚æœæ€§èƒ½ä¸è¶³ï¼Œå¯ç›´æ¥å»æ‰
+                   'Position',zeros(1,m),... % åœæœºä½å·
               'unappropriated',hangbanData(1:m, 2)',...
-              'fitness1',0,...%Ä¿±êº¯ÊıÖµ1:ÓÍºÄ
-              'fitness2',0,...%Ä¿±êº¯ÊıÖµ2:¿¿ÇÅÂÊ
-              'fitness',0);   %¶àÄ¿±êº¯ÊıÖµ
+              'fitness1',0,...%ç›®æ ‡å‡½æ•°å€¼1:æ²¹è€—
+              'fitness2',0,...%ç›®æ ‡å‡½æ•°å€¼2:é æ¡¥ç‡
+              'fitness',0);   %å¤šç›®æ ‡å‡½æ•°å€¼
 
     %}
 end;
-disp('·ÖÅä»úÎ»');
-%·ÖÅä»úÎ»
+disp('åˆ†é…æœºä½');
+%åˆ†é…æœºä½
 chroms = position(chroms,'first',hangbanData,positionData,timeInter,time);
 
 chroms{1,1}.Position
 chroms = fitness(chroms, positionData, time, hangbanData, oilCost, w1, w2, goal);
 chroms{1,1}.Position
 %{%}
-%ÊÊÓ¦¶ÈÖµÅÅĞò
+%é€‚åº”åº¦å€¼æ’åº
 
 chroms = sortByFitness(chroms,goal);
 
-%Ã¿´ú¾«Ó¢²ßÂÔ
+%æ¯ä»£ç²¾è‹±ç­–ç•¥
 chromBest = chroms{1,1};
-%ÀúÊ·¼ÇÂ¼
+%å†å²è®°å½•
 trace=zeros(3,Maxgen);
-disp('µü´ú¿ªÊ¼');
-%µü´ú¿ªÊ¼
+disp('è¿­ä»£å¼€å§‹');
+%è¿­ä»£å¼€å§‹
 k=1;
 
 
 while(k<=Maxgen)
-    STR=sprintf('%s%d','½ø»¯´úÊı',k);
+    STR=sprintf('%s%d','è¿›åŒ–ä»£æ•°',k);
     disp(STR);
     
-    %Ñ¡Ôñ
+    %é€‰æ‹©
     chroms = selection(chroms,goal);
-    %½»²æ
+    %äº¤å‰
     chroms = crossover(chroms, croPos);%%%%%%%%%%%%%%
-    %±äÒì
+    %å˜å¼‚
     chroms = mutation(chroms, positionData, mutPos);
-    %¼ÆËãfitness
+    %è®¡ç®—fitness
     chroms = position(chroms,'else',hangbanData,positionData,timeInter,time);
     chroms = fitness(chroms, positionData, time, hangbanData, oilCost, w1, w2, goal);
-    %ÊÊÓ¦¶ÈÖµÅÅĞò
+    %é€‚åº”åº¦å€¼æ’åº
     chroms = sortByFitness(chroms,chromBest,goal);
-    %Í³¼Æ£¬È¡³ö¾«Ó¢
+    %ç»Ÿè®¡ï¼Œå–å‡ºç²¾è‹±
     chromBest = chroms{1,1};
     trace(1,k) = chroms{1,1}.fitness1;
     trace(2,k) = chroms{1,1}.fitness2;
     trace(3,k) = chroms{1,1}.fitness;
     k = k + 1;
-    %µü´ú½áÊø
+    %è¿­ä»£ç»“æŸ
 end;
-%¼ÆÊ±½áÊø
+%è®¡æ—¶ç»“æŸ
 toc;
 
-%Êä³ö½á¹û
-%¸ñÊ½£º×îÓÅ¸öÌåĞĞ1£ºº½°àĞòÁĞºÅ 2£º»úÎ»ºÅ 3ÊÊÓ¦¶ÈÖµ1 4£ºÊÊÓ¦¶ÈÖµ1  5: ÊÊÓ¦¶ÈÖµ2  6£ºÊÊÓ¦¶ÈÖµ¶à
-disp('º½°àĞòÁĞºÅ');
+%è¾“å‡ºç»“æœ
+%æ ¼å¼ï¼šæœ€ä¼˜ä¸ªä½“è¡Œ1ï¼šèˆªç­åºåˆ—å· 2ï¼šæœºä½å· 3é€‚åº”åº¦å€¼1 4ï¼šé€‚åº”åº¦å€¼1  5: é€‚åº”åº¦å€¼2  6ï¼šé€‚åº”åº¦å€¼å¤š
+disp('èˆªç­åºåˆ—å·');
 chroms{1,1}.HangbanSeNum
-disp('»úÎ»ºÅ');
+disp('æœºä½å·');
 chroms{1,1}.Position
 %{%}
 switch(goal)
     case 1
-        disp('µ¥Ä¿±ê£ºÓÍºÄ');
+        disp('å•ç›®æ ‡ï¼šæ²¹è€—');
         chroms{1,1}.fitness1
-        %»­³öµü´úÍ¼Ä¿±êº¯Êı1
+        %ç”»å‡ºè¿­ä»£å›¾ç›®æ ‡å‡½æ•°1
         figure(1)
         
         plot(trace(1,:))
         hold on, grid;
-        xlabel('½ø»¯´úÊı');
-        ylabel('×îÓÅ½â±ä»¯');
-        title('µ¥Ä¿±ê£ºÓÍºÄ')
+        xlabel('è¿›åŒ–ä»£æ•°');
+        ylabel('æœ€ä¼˜è§£å˜åŒ–');
+        title('å•ç›®æ ‡ï¼šæ²¹è€—')
         
     case 2
-        disp('µ¥Ä¿±ê£º¿¿ÇÅÂÊ');
+        disp('å•ç›®æ ‡ï¼šé æ¡¥ç‡');
         chroms{1,1}.fitness2
-        %»­³öµü´úÍ¼Ä¿±ê±êº¯Êı2
+        %ç”»å‡ºè¿­ä»£å›¾ç›®æ ‡æ ‡å‡½æ•°2
         figure(2)
         plot(trace(2,:))
         hold on, grid;
-        xlabel('½ø»¯´úÊı');
-        ylabel('×îÓÅ½â±ä»¯');
-        title('µ¥Ä¿±ê£º¿¿ÇÅÂÊ')
+        xlabel('è¿›åŒ–ä»£æ•°');
+        ylabel('æœ€ä¼˜è§£å˜åŒ–');
+        title('å•ç›®æ ‡ï¼šé æ¡¥ç‡')
     case 0
-        disp('Ä¿±ê1£ºÓÍºÄ');
+        disp('ç›®æ ‡1ï¼šæ²¹è€—');
         chroms{1,1}.fitness1
-        disp('Ä¿±ê¶ş£º¿¿ÇÅÂÊ');
+        disp('ç›®æ ‡äºŒï¼šé æ¡¥ç‡');
         chroms{1,1}.fitness2
-        disp('×ÜÄ¿±ê');
+        disp('æ€»ç›®æ ‡');
         chroms{1,1}.fitness
-        %»­Í¼
+        %ç”»å›¾
          figure(1)
         
         plot(trace(1,:))
         hold on, grid;
-        xlabel('½ø»¯´úÊı');
-        ylabel('×îÓÅ½â±ä»¯');
-        title('µ¥Ä¿±ê£ºÓÍºÄ')
+        xlabel('è¿›åŒ–ä»£æ•°');
+        ylabel('æœ€ä¼˜è§£å˜åŒ–');
+        title('å•ç›®æ ‡ï¼šæ²¹è€—')
         
         figure(2)
         plot(trace(2,:))
         hold on, grid;
-        xlabel('½ø»¯´úÊı');
-        ylabel('×îÓÅ½â±ä»¯');
-        title('µ¥Ä¿±ê£º¿¿ÇÅÂÊ')
-        %»­³öµü´úÍ¼×ÜÄ¿±ê
+        xlabel('è¿›åŒ–ä»£æ•°');
+        ylabel('æœ€ä¼˜è§£å˜åŒ–');
+        title('å•ç›®æ ‡ï¼šé æ¡¥ç‡')
+        %ç”»å‡ºè¿­ä»£å›¾æ€»ç›®æ ‡
         figure(3)
-        title('×ÜÄ¿±ê')
+        title('æ€»ç›®æ ‡')
         plot(trace(3,:))
         hold on, grid;
-        xlabel('½ø»¯´úÊı');
-        ylabel('×îÓÅ½â±ä»¯');
-        title('×ÜÄ¿±ê')
+        xlabel('è¿›åŒ–ä»£æ•°');
+        ylabel('æœ€ä¼˜è§£å˜åŒ–');
+        title('æ€»ç›®æ ‡')
         
     otherwise
-        fprintf('µ¥Ä¿±êor¶àÄ¿±ê£¿²ÎÊı×ĞÏ¸ÔÙ¿´¿´\n' );
+        fprintf('å•ç›®æ ‡orå¤šç›®æ ‡ï¼Ÿå‚æ•°ä»”ç»†å†çœ‹çœ‹\n' );
 end
 
-%ÈÕÆÚ»¹Ô­
+%æ—¥æœŸè¿˜åŸ
 % for i=1:n
 %     hangbanData(i,5) = timeTransf(hangbanData(i,5),2);
 %     hangbanData(i,6) = timeTransf(hangbanData(i,6),2);
 % end
 
-%¸ÊÌØÍ¼£¿£¿£¿£¿
+%ç”˜ç‰¹å›¾ï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 ganttest(chroms{1,1},hangbanData,positionData,time);
 %{
-disp('Ä¿±ê1£ºÓÍºÄ');
+disp('ç›®æ ‡1ï¼šæ²¹è€—');
         chroms{1,1}.fitness1
-        disp('Ä¿±ê¶ş£º¿¿ÇÅÂÊ');
+        disp('ç›®æ ‡äºŒï¼šé æ¡¥ç‡');
         chroms{1,1}.fitness2
-        disp('×ÜÄ¿±ê');
+        disp('æ€»ç›®æ ‡');
         chroms{1,1}.fitness
 %}
 
